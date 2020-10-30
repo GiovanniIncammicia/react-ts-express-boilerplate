@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { Schema, Document, model } from 'mongoose';
 import { INTERNAL_SERVER_ERROR } from './httpStatusCodes';
 
-interface ILog extends Document {
+interface IAppError extends Document {
 	status: number
   route: string
   user: string
@@ -10,7 +10,7 @@ interface ILog extends Document {
   detail: any
 };
 
-const LogSchema = new Schema({
+const AppErrorSchema = new Schema({
   status: { type: Number },
   route: { type: String },
   user: { type: String },
@@ -18,7 +18,7 @@ const LogSchema = new Schema({
   detail: { type: Schema.Types.Mixed },
 }, { timestamps: { createdAt: 'createdAt' } });
 
-const Log = model<ILog>('Log', LogSchema);
+const AppError = model<IAppError>('AppError', AppErrorSchema);
 
 export class CustomError extends Error {
   status: number;
@@ -39,8 +39,8 @@ export class CustomError extends Error {
 // Error Middleware called in app.ts
 export const errorHandler = (err: CustomError, req: Request, res: Response, next: NextFunction) => {
   let { status, message } = err;
-  Log.create(Object.assign({ message }, err));
-  console.error("LOG: ", err);
+  AppError.create(Object.assign({ message }, err));
+  console.error("ERROR: ", err);
   return res.status(status).json({ message });
 };
 
@@ -50,4 +50,8 @@ export const handleError = (err: CustomError, next: NextFunction, route: string,
   err.route = route;
   err.user = user;
   next(err);
+}
+
+export async function listErrors() {
+	return AppError.find().lean().exec();
 }

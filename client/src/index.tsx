@@ -4,8 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-import './fontawesome';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import reportWebVitals from './reportWebVitals';
+import './config/fontawesome';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,4 +17,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-serviceWorker.register();
+serviceWorkerRegistration.register();
+reportWebVitals(console.log);

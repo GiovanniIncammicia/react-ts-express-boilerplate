@@ -2,7 +2,7 @@ import React, { memo, ReactNode } from 'react';
 import { HeaderStyled, Logo, Menu, Icons } from './styles';
 import { Flex } from '../Lib';
 import { Link } from 'react-router-dom';
-import { auth } from '../../firebase';
+import { auth } from '../../config/firebase';
 
 export default memo(function Header ({ children }: { children?: ReactNode }) {
   return (

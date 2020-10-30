@@ -1,8 +1,13 @@
+import { auth } from '../config/firebase';
+
 async function request(url: string, params?: any, method = 'GET') {
+  const token = await auth.currentUser?.getIdToken();
+  
   const options = {
     method,
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
     },
     body: JSON.stringify(params)
   };
@@ -16,7 +21,7 @@ async function request(url: string, params?: any, method = 'GET') {
 }
 
 export const get = (url: string) => request(url);
-export const create = (url: string, params: any) => request(url, params, 'POST');
-export const update = (url: string, params: any) => request(url, params, 'PUT');
-export const remove = (url: string) => request(url, undefined, 'DELETE');
+export const post = (url: string, params: any) => request(url, params, 'POST');
+export const put = (url: string, params: any) => request(url, params, 'PUT');
+export const del = (url: string) => request(url, undefined, 'DELETE');
 

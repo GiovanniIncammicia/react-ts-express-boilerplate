@@ -6,6 +6,7 @@
     "strict": true,
     "esModuleInterop": true,
     "inlineSourceMap": true,
+    "resolveJsonModule": true
   },
   "include": ["app.ts", "server/**/*.ts"]
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { auth, generateUserDocument } from '../../firebase';
+import { auth, generateUserDocument } from '../../config/firebase';
 import { AuthContainer, AuthMainButton } from './styles';
 import { Flex, Input } from '../Lib';
 import { Link } from 'react-router-dom';

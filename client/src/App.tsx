@@ -6,18 +6,21 @@ import { reducer, initialState, Provider } from './globalContext';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 import { Flex } from './components/Lib';
-import { Loading } from './Icons';
+import { Loading } from './components/Icons';
 import Signup from './components/Auth/Signup';
 import PasswordReset from './components/Auth/PasswordReset';
 import Signin from './components/Auth/Signin';
-import { auth, generateUserDocument } from './firebase';
+import { auth, generateUserDocument } from './config/firebase';
+// import { useServerTransition } from './utility/hooks';
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { user, loading } = state;
+  // const performServerTransition = useServerTransition();
   const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   useEffect(() => {
+    // TODO: use performServerTransition
     auth.onAuthStateChanged(async user => {
       const data = await generateUserDocument(user);
       dispatch({ type: 'setUser', data });

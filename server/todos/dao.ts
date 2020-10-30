@@ -1,7 +1,7 @@
 // DAO (Data Access Object) is responsible for all the database related operations
 // DAO is the link between the server and the database
 import { Schema, Document, model } from 'mongoose';
-import { CustomError } from '../utility/errorHandler';
+import { CustomError } from '../utility/errorLogger';
 import { NOT_FOUND } from '../utility/httpStatusCodes';
 
 export interface ITodo extends Document {

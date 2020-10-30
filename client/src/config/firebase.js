@@ -3,13 +3,14 @@ import "firebase/auth";
 import "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCRkR8v9JwJ725xD5D3PLRcY5sjoA4OhOU",
-  authDomain: "dinnerisready-4854d.firebaseapp.com",
-  databaseURL: "https://dinnerisready-4854d.firebaseio.com",
-  projectId: "dinnerisready-4854d",
-  storageBucket: "dinnerisready-4854d.appspot.com",
-  messagingSenderId: "21158814559",
-  appId: "1:21158814559:web:f57f0fae3ecd6695854cea"
+  apiKey: "AIzaSyBFiqPvb0ZOZCRJkrP2Wx8tvZsEc-F5H3I",
+  authDomain: "hermann-1b784.firebaseapp.com",
+  databaseURL: "https://hermann-1b784.firebaseio.com",
+  projectId: "hermann-1b784",
+  storageBucket: "hermann-1b784.appspot.com",
+  messagingSenderId: "40191220060",
+  appId: "1:40191220060:web:8fe57fae7580cba73ec999",
+  measurementId: "G-B3B78W1DMZ"
 }
 
 firebase.initializeApp(firebaseConfig);

@@ -4,8 +4,15 @@ import { useForm } from 'react-hook-form';
 import { Input } from '../Lib';
 import form from './form';
 
+type TFormInputs = {
+  name: string,
+  email: string,
+  age: string
+  check: string,
+};
+
 export default function Form () {
-  const { register, errors, handleSubmit, reset } = useForm();
+  const { register, errors, handleSubmit, reset } = useForm<TFormInputs>();
   const onSubmit = async ({ email }: { email: string }) => {
     try {
       console.log(email);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
-import { signInWithGoogle, auth } from '../../firebase';
+import { signInWithGoogle, auth } from '../../config/firebase';
 import { AuthContainer, AuthMainButton, AuthOr, AuthGoogleButton } from './styles';
 import { Flex, Input } from '../Lib';
 import googleLogo from '../../media/google.png';

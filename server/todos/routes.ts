@@ -2,7 +2,7 @@
 // Router is the dispatcher between the client and the middlewares/controller
 import { Router } from 'express';
 import { createTodo, updateTodo, deleteTodo, listTodos } from './controller';
-import { checkBody } from '../utility/middlewares';
+import { checkBody, checkIfAuthenticated } from '../utility/middlewares';
 const router = Router();
 
 // Create Todo
@@ -15,6 +15,6 @@ router.put('/:id', [checkBody, updateTodo]);
 router.delete('/:id', [deleteTodo]);
 
 // List Todos
-router.get('/:uid', [listTodos]);
+router.get('/:uid', [checkIfAuthenticated, listTodos]);
 
 export default router;

@@ -1,6 +1,6 @@
 import { emailPattern } from '../../utility/patterns';
 
-export default {
+const form = {
   name: {
     required: true,
     maxLength: 18,
@@ -19,3 +19,5 @@ export default {
     validate: (value: string) => value === 'Hello world!'
   }
 }
+
+export default form;

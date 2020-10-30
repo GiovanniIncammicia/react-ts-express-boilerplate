@@ -3,7 +3,7 @@
 import { Request, Response, NextFunction} from 'express';
 import * as dao from './dao';
 import { OK } from '../utility/httpStatusCodes';
-import { handleError } from '../utility/errorHandler';
+import { handleError } from '../utility/errorLogger';
 
 export async function createTodo(req: Request, res: Response, next: NextFunction) {
   try {
